@@ -22,11 +22,10 @@ vim.keymap.set("i", "<C-y>", '<Esc>"+yyi', { noremap = true, desc = "Copy entire
 
 local function duplicate_lines(direction, gap)
   local mode = vim.api.nvim_get_mode().mode
-  local start_line, end_line
-  local line_count = vim.api.nvim_buf_line_count(0)
+  local is_visual = mode:match("[vV]") ~= nil
 
-  -- Obter range de linhas selecionadas (visual) ou linha atual (normal)
-  if mode:match("[vV]") then
+  local start_line, end_line
+  if is_visual then
     start_line = vim.fn.line("v")
     end_line = vim.fn.line(".")
     if start_line > end_line then
@@ -37,59 +36,45 @@ local function duplicate_lines(direction, gap)
     end_line = start_line
   end
 
-  local num_lines = end_line - start_line + 1
-  local new_lines = {}
+  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+  local num_lines = #lines
 
-  -- Coletar linhas para duplicação
-  for i = start_line, end_line do
-    table.insert(new_lines, vim.api.nvim_buf_get_lines(0, i - 1, i, false)[1])
-  end
+  local insert_line, cursor_line
 
-  -- Determinar posição de inserção baseada na direção e gap
-  local insert_pos
   if direction == "down" then
-    insert_pos = end_line + (gap and 1 or 0)
-  else -- up
-    insert_pos = start_line - (gap and 2 or 1)
-  end
-
-  -- Ajustar para limites do buffer
-  insert_pos = math.max(math.min(insert_pos, line_count), 0)
-
-  -- Inserir linhas duplicadas
-  vim.api.nvim_buf_set_lines(0, insert_pos, insert_pos, false, new_lines)
-
-  -- Adicionar linha em branco se necessário
-  if gap then
-    local gap_pos = direction == "down" and insert_pos + num_lines or insert_pos + 1
-    vim.api.nvim_buf_set_lines(0, gap_pos, gap_pos, false, { "" })
-  end
-
-  -- Posicionar cursor
-  if mode:match("[vV]") then
-    local new_cursor_line = direction == "down" and insert_pos + 1 or insert_pos + num_lines
-    vim.api.nvim_win_set_cursor(0, { new_cursor_line, 0 })
-    vim.cmd("normal! V") -- Re-selecionar o bloco duplicado
+    insert_line = end_line
+    if gap then
+      table.insert(lines, 1, "")
+    end
+    vim.api.nvim_buf_set_lines(0, insert_line, insert_line, false, lines)
+    cursor_line = insert_line + (gap and 2 or 1)
   else
-    local new_cursor_line = direction == "down" and start_line or start_line + num_lines + (gap and 1 or 0)
-    vim.api.nvim_win_set_cursor(0, { new_cursor_line, 0 })
+    insert_line = start_line - 1
+    if gap then
+      table.insert(lines, "")
+    end
+    vim.api.nvim_buf_set_lines(0, insert_line, insert_line, false, lines)
+    cursor_line = start_line
+  end
+
+  vim.api.nvim_win_set_cursor(0, { cursor_line, 0 })
+
+  if is_visual then
+    vim.cmd("normal! " .. num_lines - 1 .. "j")
+    vim.cmd("normal! V" .. (num_lines - 1 == 0 and "" or (num_lines - 1) .. "k"))
   end
 end
 
--- Mapeamentos
-vim.keymap.set({ "n", "v" }, "<C-d><Down>", function()
+vim.keymap.set({ "n", "v" }, "<M-d><Down>", function()
   duplicate_lines("down", false)
 end, { desc = "Duplicar linha/seleção abaixo (sem gap)" })
-
-vim.keymap.set({ "n", "v" }, "<C-d><Right>", function()
+vim.keymap.set({ "n", "v" }, "<M-d><Right>", function()
   duplicate_lines("down", true)
 end, { desc = "Duplicar linha/seleção abaixo (com gap)" })
-
-vim.keymap.set({ "n", "v" }, "<C-d><Up>", function()
+vim.keymap.set({ "n", "v" }, "<M-d><Up>", function()
   duplicate_lines("up", false)
 end, { desc = "Duplicar linha/seleção acima (sem gap)" })
-
-vim.keymap.set({ "n", "v" }, "<C-d><Left>", function()
+vim.keymap.set({ "n", "v" }, "<M-d><Left>", function()
   duplicate_lines("up", true)
 end, { desc = "Duplicar linha/seleção acima (com gap)" })
 
