@@ -1,0 +1,14 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescriptreact",
+          "javascriptreact"
+        ],
+        "path": "../../../.local/share/nvim/lazy/friendly-snippets/snippets/html.json"
+      }
+    ]
+  }
+}
