@@ -1,17 +1,562 @@
 {
+  "a": {
+    "prefix": "a",
+    "body": ["<a href=\"$1\">$2</a>"],
+    "description": "HTML anchor element"
+  },
+  "abbr": {
+    "prefix": "abbr",
+    "body": ["<abbr title=\"$1\">$2</abbr>"],
+    "description": "HTML abbreviation element"
+  },
+  "address": {
+    "prefix": "address",
+    "body": ["<address>", "\t$1", "</address>"],
+    "description": "HTML address element"
+  },
+  "area": {
+    "prefix": "area",
+    "body": ["<area shape=\"$1\" coords=\"$2\" href=\"$3\" alt=\"$4\">"],
+    "description": "HTML area element"
+  },
+  "article": {
+    "prefix": "article",
+    "body": ["<article>", "\t$1", "</article>"],
+    "description": "HTML article element"
+  },
+  "aside": {
+    "prefix": "aside",
+    "body": ["<aside>", "\t$1", "</aside>"],
+    "description": "HTML aside element"
+  },
+  "audio": {
+    "prefix": "audio",
+    "body": ["<audio controls>", "\t<source src=\"$1\" type=\"$2\">", "\t$3", "</audio>"],
+    "description": "HTML audio element"
+  },
+  "b": {
+    "prefix": "b",
+    "body": ["<b>$1</b>"],
+    "description": "HTML bold element"
+  },
+  "base": {
+    "prefix": "base",
+    "body": ["<base href=\"$1\" target=\"$2\">"],
+    "description": "HTML base element"
+  },
+  "bdi": {
+    "prefix": "bdi",
+    "body": ["<bdi>$1</bdi>"],
+    "description": "HTML bidirectional isolation element"
+  },
+  "bdo": {
+    "prefix": "bdo",
+    "body": ["<bdo dir=\"$1\">$2</bdo>"],
+    "description": "HTML bidirectional override element"
+  },
+  "blockquote": {
+    "prefix": "blockquote",
+    "body": ["<blockquote cite=\"$1\">", "\t$2", "</blockquote>"],
+    "description": "HTML blockquote element"
+  },
+  "body": {
+    "prefix": "body",
+    "body": ["<body>", "\t$1", "</body>"],
+    "description": "HTML body element"
+  },
+  "br": {
+    "prefix": "br",
+    "body": ["<br>"],
+    "description": "HTML line break element"
+  },
+  "button": {
+    "prefix": "button",
+    "body": ["<button type=\"$1\">$2</button>"],
+    "description": "HTML button element"
+  },
+  "canvas": {
+    "prefix": "canvas",
+    "body": ["<canvas id=\"$1\" width=\"$2\" height=\"$3\">$4</canvas>"],
+    "description": "HTML canvas element"
+  },
+  "caption": {
+    "prefix": "caption",
+    "body": ["<caption>$1</caption>"],
+    "description": "HTML table caption element"
+  },
+  "cite": {
+    "prefix": "cite",
+    "body": ["<cite>$1</cite>"],
+    "description": "HTML citation element"
+  },
+  "code": {
+    "prefix": "code",
+    "body": ["<code>$1</code>"],
+    "description": "HTML code element"
+  },
+  "col": {
+    "prefix": "col",
+    "body": ["<col span=\"$1\">"],
+    "description": "HTML table column element"
+  },
+  "colgroup": {
+    "prefix": "colgroup",
+    "body": ["<colgroup>", "\t<col span=\"$1\">", "</colgroup>"],
+    "description": "HTML table column group element"
+  },
+  "data": {
+    "prefix": "data",
+    "body": ["<data value=\"$1\">$2</data>"],
+    "description": "HTML data element"
+  },
+  "datalist": {
+    "prefix": "datalist",
+    "body": ["<datalist id=\"$1\">", "\t<option value=\"$2\">", "</datalist>"],
+    "description": "HTML datalist element"
+  },
+  "dd": {
+    "prefix": "dd",
+    "body": ["<dd>$1</dd>"],
+    "description": "HTML description details element"
+  },
+  "del": {
+    "prefix": "del",
+    "body": ["<del>$1</del>"],
+    "description": "HTML deleted text element"
+  },
+  "details": {
+    "prefix": "details",
+    "body": ["<details>", "\t<summary>$1</summary>", "\t$2", "</details>"],
+    "description": "HTML details element"
+  },
+  "dfn": {
+    "prefix": "dfn",
+    "body": ["<dfn>$1</dfn>"],
+    "description": "HTML definition element"
+  },
+  "dialog": {
+    "prefix": "dialog",
+    "body": ["<dialog>", "\t$1", "</dialog>"],
+    "description": "HTML dialog element"
+  },
   "div": {
     "prefix": "div",
     "body": ["<div>", "\t$1", "</div>"],
     "description": "HTML div element"
   },
+  "dl": {
+    "prefix": "dl",
+    "body": ["<dl>", "\t<dt>$1</dt>", "\t<dd>$2</dd>", "</dl>"],
+    "description": "HTML description list element"
+  },
+  "dt": {
+    "prefix": "dt",
+    "body": ["<dt>$1</dt>"],
+    "description": "HTML description term element"
+  },
+  "em": {
+    "prefix": "em",
+    "body": ["<em>$1</em>"],
+    "description": "HTML emphasis element"
+  },
+  "embed": {
+    "prefix": "embed",
+    "body": ["<embed src=\"$1\" type=\"$2\">"],
+    "description": "HTML embed element"
+  },
+  "fieldset": {
+    "prefix": "fieldset",
+    "body": ["<fieldset>", "\t<legend>$1</legend>", "\t$2", "</fieldset>"],
+    "description": "HTML fieldset element"
+  },
+  "figcaption": {
+    "prefix": "figcaption",
+    "body": ["<figcaption>$1</figcaption>"],
+    "description": "HTML figure caption element"
+  },
+  "figure": {
+    "prefix": "figure",
+    "body": ["<figure>", "\t$1", "\t<figcaption>$2</figcaption>", "</figure>"],
+    "description": "HTML figure element"
+  },
+  "footer": {
+    "prefix": "footer",
+    "body": ["<footer>", "\t$1", "</footer>"],
+    "description": "HTML footer element"
+  },
+  "form": {
+    "prefix": "form",
+    "body": ["<form action=\"$1\" method=\"$2\">", "\t$3", "</form>"],
+    "description": "HTML form element"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": ["<h1>$1</h1>"],
+    "description": "HTML heading 1 element"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": ["<h2>$1</h2>"],
+    "description": "HTML heading 2 element"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": ["<h3>$1</h3>"],
+    "description": "HTML heading 3 element"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": ["<h4>$1</h4>"],
+    "description": "HTML heading 4 element"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": ["<h5>$1</h5>"],
+    "description": "HTML heading 5 element"
+  },
+  "h6": {
+    "prefix": "h6",
+    "body": ["<h6>$1</h6>"],
+    "description": "HTML heading 6 element"
+  },
+  "head": {
+    "prefix": "head",
+    "body": ["<head>", "\t<meta charset=\"UTF-8\">", "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "\t<title>$1</title>", "</head>"],
+    "description": "HTML head element"
+  },
+  "header": {
+    "prefix": "header",
+    "body": ["<header>", "\t$1", "</header>"],
+    "description": "HTML header element"
+  },
+  "hgroup": {
+    "prefix": "hgroup",
+    "body": ["<hgroup>", "\t$1", "</hgroup>"],
+    "description": "HTML heading group element"
+  },
+  "hr": {
+    "prefix": "hr",
+    "body": ["<hr>"],
+    "description": "HTML horizontal rule element"
+  },
+  "html": {
+    "prefix": "html",
+    "body": ["<!DOCTYPE html>", "<html lang=\"$1\">", "<head>", "\t<meta charset=\"UTF-8\">", "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "\t<title>$2</title>", "</head>", "<body>", "\t$3", "</body>", "</html>"],
+    "description": "HTML document structure"
+  },
+  "i": {
+    "prefix": "i",
+    "body": ["<i>$1</i>"],
+    "description": "HTML italic element"
+  },
+  "iframe": {
+    "prefix": "iframe",
+    "body": ["<iframe src=\"$1\" width=\"$2\" height=\"$3\">$4</iframe>"],
+    "description": "HTML iframe element"
+  },
+  "img": {
+    "prefix": "img",
+    "body": ["<img src=\"$1\" alt=\"$2\">"],
+    "description": "HTML image element"
+  },
+  "input": {
+    "prefix": "input",
+    "body": ["<input type=\"$1\" name=\"$2\" id=\"$3\">"],
+    "description": "HTML input element"
+  },
+  "ins": {
+    "prefix": "ins",
+    "body": ["<ins>$1</ins>"],
+    "description": "HTML inserted text element"
+  },
+  "kbd": {
+    "prefix": "kbd",
+    "body": ["<kbd>$1</kbd>"],
+    "description": "HTML keyboard input element"
+  },
+  "label": {
+    "prefix": "label",
+    "body": ["<label for=\"$1\">$2</label>"],
+    "description": "HTML label element"
+  },
+  "legend": {
+    "prefix": "legend",
+    "body": ["<legend>$1</legend>"],
+    "description": "HTML legend element"
+  },
   "li": {
     "prefix": "li",
     "body": ["<li>$1</li>"],
-    "description": "HTML li element"
+    "description": "HTML list item element"
+  },
+  "link": {
+    "prefix": "link",
+    "body": ["<link rel=\"$1\" href=\"$2\">"],
+    "description": "HTML link element"
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["<main>", "\t$1", "</main>"],
+    "description": "HTML main element"
+  },
+  "map": {
+    "prefix": "map",
+    "body": ["<map name=\"$1\">", "\t$2", "</map>"],
+    "description": "HTML image map element"
+  },
+  "mark": {
+    "prefix": "mark",
+    "body": ["<mark>$1</mark>"],
+    "description": "HTML mark element"
+  },
+  "meta": {
+    "prefix": "meta",
+    "body": ["<meta name=\"$1\" content=\"$2\">"],
+    "description": "HTML meta element"
+  },
+  "meter": {
+    "prefix": "meter",
+    "body": ["<meter value=\"$1\" min=\"$2\" max=\"$3\">$4</meter>"],
+    "description": "HTML meter element"
+  },
+  "nav": {
+    "prefix": "nav",
+    "body": ["<nav>", "\t$1", "</nav>"],
+    "description": "HTML navigation element"
+  },
+  "noscript": {
+    "prefix": "noscript",
+    "body": ["<noscript>", "\t$1", "</noscript>"],
+    "description": "HTML noscript element"
+  },
+  "object": {
+    "prefix": "object",
+    "body": ["<object data=\"$1\" type=\"$2\">$3</object>"],
+    "description": "HTML object element"
+  },
+  "ol": {
+    "prefix": "ol",
+    "body": ["<ol>", "\t<li>$1</li>", "</ol>"],
+    "description": "HTML ordered list element"
+  },
+  "optgroup": {
+    "prefix": "optgroup",
+    "body": ["<optgroup label=\"$1\">", "\t<option value=\"$2\">$3</option>", "</optgroup>"],
+    "description": "HTML option group element"
+  },
+  "option": {
+    "prefix": "option",
+    "body": ["<option value=\"$1\">$2</option>"],
+    "description": "HTML option element"
+  },
+  "output": {
+    "prefix": "output",
+    "body": ["<output name=\"$1\" for=\"$2\">$3</output>"],
+    "description": "HTML output element"
+  },
+  "p": {
+    "prefix": "p",
+    "body": ["<p>$1</p>"],
+    "description": "HTML paragraph element"
+  },
+  "param": {
+    "prefix": "param",
+    "body": ["<param name=\"$1\" value=\"$2\">"],
+    "description": "HTML parameter element"
+  },
+  "picture": {
+    "prefix": "picture",
+    "body": ["<picture>", "\t<source srcset=\"$1\" type=\"$2\">", "\t<img src=\"$3\" alt=\"$4\">", "</picture>"],
+    "description": "HTML picture element"
+  },
+  "pre": {
+    "prefix": "pre",
+    "body": ["<pre>$1</pre>"],
+    "description": "HTML preformatted text element"
+  },
+  "progress": {
+    "prefix": "progress",
+    "body": ["<progress value=\"$1\" max=\"$2\">$3</progress>"],
+    "description": "HTML progress element"
+  },
+  "q": {
+    "prefix": "q",
+    "body": ["<q cite=\"$1\">$2</q>"],
+    "description": "HTML inline quotation element"
+  },
+  "rp": {
+    "prefix": "rp",
+    "body": ["<rp>$1</rp>"],
+    "description": "HTML ruby parenthesis element"
+  },
+  "rt": {
+    "prefix": "rt",
+    "body": ["<rt>$1</rt>"],
+    "description": "HTML ruby text element"
+  },
+  "ruby": {
+    "prefix": "ruby",
+    "body": ["<ruby>", "\t$1", "\t<rt>$2</rt>", "</ruby>"],
+    "description": "HTML ruby annotation element"
+  },
+  "s": {
+    "prefix": "s",
+    "body": ["<s>$1</s>"],
+    "description": "HTML strikethrough element"
+  },
+  "samp": {
+    "prefix": "samp",
+    "body": ["<samp>$1</samp>"],
+    "description": "HTML sample output element"
+  },
+  "script": {
+    "prefix": "script",
+    "body": ["<script>", "\t$1", "</script>"],
+    "description": "HTML script element"
+  },
+  "search": {
+    "prefix": "search",
+    "body": ["<search>", "\t$1", "</search>"],
+    "description": "HTML search element"
+  },
+  "section": {
+    "prefix": "section",
+    "body": ["<section>", "\t$1", "</section>"],
+    "description": "HTML section element"
+  },
+  "select": {
+    "prefix": "select",
+    "body": ["<select name=\"$1\" id=\"$2\">", "\t<option value=\"$3\">$4</option>", "</select>"],
+    "description": "HTML select element"
+  },
+  "slot": {
+    "prefix": "slot",
+    "body": ["<slot name=\"$1\">$2</slot>"],
+    "description": "HTML slot element"
+  },
+  "small": {
+    "prefix": "small",
+    "body": ["<small>$1</small>"],
+    "description": "HTML small text element"
+  },
+  "source": {
+    "prefix": "source",
+    "body": ["<source src=\"$1\" type=\"$2\">"],
+    "description": "HTML source element"
+  },
+  "span": {
+    "prefix": "span",
+    "body": ["<span>$1</span>"],
+    "description": "HTML span element"
+  },
+  "strong": {
+    "prefix": "strong",
+    "body": ["<strong>$1</strong>"],
+    "description": "HTML strong element"
+  },
+  "style": {
+    "prefix": "style",
+    "body": ["<style>", "\t$1", "</style>"],
+    "description": "HTML style element"
+  },
+  "sub": {
+    "prefix": "sub",
+    "body": ["<sub>$1</sub>"],
+    "description": "HTML subscript element"
+  },
+  "summary": {
+    "prefix": "summary",
+    "body": ["<summary>$1</summary>"],
+    "description": "HTML summary element"
+  },
+  "sup": {
+    "prefix": "sup",
+    "body": ["<sup>$1</sup>"],
+    "description": "HTML superscript element"
+  },
+  "table": {
+    "prefix": "table",
+    "body": ["<table>", "\t<thead>", "\t\t<tr>", "\t\t\t<th>$1</th>", "\t\t</tr>", "\t</thead>", "\t<tbody>", "\t\t<tr>", "\t\t\t<td>$2</td>", "\t\t</tr>", "\t</tbody>", "</table>"],
+    "description": "HTML table element"
+  },
+  "tbody": {
+    "prefix": "tbody",
+    "body": ["<tbody>", "\t$1", "</tbody>"],
+    "description": "HTML table body element"
+  },
+  "td": {
+    "prefix": "td",
+    "body": ["<td>$1</td>"],
+    "description": "HTML table data cell element"
+  },
+  "template": {
+    "prefix": "template",
+    "body": ["<template>", "\t$1", "</template>"],
+    "description": "HTML template element"
+  },
+  "textarea": {
+    "prefix": "textarea",
+    "body": ["<textarea name=\"$1\" id=\"$2\" rows=\"$3\" cols=\"$4\">$5</textarea>"],
+    "description": "HTML textarea element"
+  },
+  "tfoot": {
+    "prefix": "tfoot",
+    "body": ["<tfoot>", "\t$1", "</tfoot>"],
+    "description": "HTML table footer element"
+  },
+  "th": {
+    "prefix": "th",
+    "body": ["<th>$1</th>"],
+    "description": "HTML table header cell element"
+  },
+  "thead": {
+    "prefix": "thead",
+    "body": ["<thead>", "\t$1", "</thead>"],
+    "description": "HTML table head element"
+  },
+  "time": {
+    "prefix": "time",
+    "body": ["<time datetime=\"$1\">$2</time>"],
+    "description": "HTML time element"
+  },
+  "title": {
+    "prefix": "title",
+    "body": ["<title>$1</title>"],
+    "description": "HTML title element"
+  },
+  "tr": {
+    "prefix": "tr",
+    "body": ["<tr>", "\t$1", "</tr>"],
+    "description": "HTML table row element"
+  },
+  "track": {
+    "prefix": "track",
+    "body": ["<track src=\"$1\" kind=\"$2\" srclang=\"$3\" label=\"$4\">"],
+    "description": "HTML track element"
+  },
+  "u": {
+    "prefix": "u",
+    "body": ["<u>$1</u>"],
+    "description": "HTML underline element"
   },
   "ul": {
     "prefix": "ul",
     "body": ["<ul>", "\t<li>$1</li>", "</ul>"],
-    "description": "HTML ul element"
+    "description": "HTML unordered list element"
+  },
+  "var": {
+    "prefix": "var",
+    "body": ["<var>$1</var>"],
+    "description": "HTML variable element"
+  },
+  "video": {
+    "prefix": "video",
+    "body": ["<video controls width=\"$1\">", "\t<source src=\"$2\" type=\"$3\">", "\t$4", "</video>"],
+    "description": "HTML video element"
+  },
+  "wbr": {
+    "prefix": "wbr",
+    "body": ["<wbr>"],
+    "description": "HTML word break opportunity element"
   }
 }
