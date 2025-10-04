@@ -5,9 +5,11 @@
       {
         "language": [
           "typescriptreact",
-          "javascriptreact"
+          "typescript",
+          "javascriptreact",
+          "javascript"
         ],
-        "path": "../../../.local/share/nvim/lazy/friendly-snippets/snippets/html.json"
+        "path": "./html.json"
       }
     ]
   }
