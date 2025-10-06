@@ -20,7 +20,6 @@ vim.keymap.set("n", "<A-l>", '"_dG', { noremap = true, desc = "Delete all lines 
 -- ============================================================================
 -- COPY/PASTE OPERATIONS
 -- ============================================================================
-vim.keymap.set("v", "<C-S-c>", '"+y', { noremap = true, desc = "Copy selection to clipboard in visual mode" })
 vim.keymap.set("n", "<C-y>", '"+yy', { noremap = true, desc = "Copy entire line (normal mode)" })
 vim.keymap.set("v", "<C-y>", '"+y', { noremap = true, desc = "Copy selection (visual mode)" })
 vim.keymap.set("i", "<C-y>", '<Esc>"+yyi', { noremap = true, desc = "Copy entire line (insert mode)" })
@@ -66,16 +65,14 @@ end, { desc = "Save file" })
 -- ============================================================================
 
 -- Toggle auto format globally
-vim.keymap.set("n", "<leader>uf", function()
+vim.keymap.set("n", "<leader>ch", function()
   require("lazyvim.util").format.toggle()
 end, { desc = "Toggle auto format (global)" })
 
 -- Toggle auto format per buffer
-vim.keymap.set("n", "<leader>uF", function()
+vim.keymap.set("n", "<leader>ci", function()
   require("lazyvim.util").format.toggle(true)
 end, { desc = "Toggle auto format (buffer)" })
 
--- Manual formatting (always works)
-vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-  require("lazyvim.util").format({ force = true })
-end, { desc = "Format" })
+-- Toggle ruff notifications
+vim.keymap.set("n", "<leader>cz", "<cmd>RuffNotifyToggle<cr>", { desc = "Toggle Ruff notifications" })
