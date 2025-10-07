@@ -76,3 +76,26 @@ end, { desc = "Toggle auto format (buffer)" })
 
 -- Toggle ruff notifications
 vim.keymap.set("n", "<leader>cz", "<cmd>RuffNotifyToggle<cr>", { desc = "Toggle Ruff notifications" })
+
+-- ============================================================================
+-- AI
+-- ============================================================================
+
+-- CodeCompanion mappings (Alt+c followed by action key)
+vim.keymap.set("n", "<A-c>c", "<cmd>CodeCompanionChat<cr>", { noremap = true, desc = "Open CodeCompanion chat" })
+vim.keymap.set(
+  "v",
+  "<A-c>c",
+  "<cmd>CodeCompanionChat<cr>",
+  { noremap = true, desc = "Open CodeCompanion chat with selection" }
+)
+vim.keymap.set("n", "<A-c>a", "<cmd>CodeCompanionActions<cr>", { noremap = true, desc = "CodeCompanion actions" })
+vim.keymap.set(
+  "v",
+  "<A-c>a",
+  "<cmd>CodeCompanionActions<cr>",
+  { noremap = true, desc = "CodeCompanion actions on selection" }
+)
+vim.keymap.set("n", "<A-c>t", "<cmd>CodeCompanionToggle<cr>", { noremap = true, desc = "Toggle CodeCompanion chat" })
+vim.keymap.set("n", "<A-c>i", "<cmd>CodeCompanion<cr>", { noremap = true, desc = "CodeCompanion inline prompt" })
+vim.keymap.set("v", "<A-c>i", "<cmd>CodeCompanion<cr>", { noremap = true, desc = "CodeCompanion inline on selection" })
